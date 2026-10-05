@@ -1,4 +1,7 @@
 fix_log.txt - self-healing automation log
 Format: [timestamp] issue -> fix applied
 
-(no fixes recorded yet)
+[2026-10-05] process_contacts.py failed 3 times in a row with KeyError: 'company'.
+  Cause: commit 6208f44 renamed the contacts.csv header "company" -> "organization"; script still read row['company'].
+  Fix: script now reads row.get('company') or row.get('organization'), so either header works.
+  Prevention: added CLAUDE.md rule - after 3 identical failures, stop retrying, diagnose via git diff, fix, log.
