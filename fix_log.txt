@@ -1,0 +1,4 @@
+fix_log.txt - self-healing automation log
+Format: [timestamp] issue -> fix applied
+
+(no fixes recorded yet)
